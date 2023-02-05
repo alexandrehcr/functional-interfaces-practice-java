@@ -21,10 +21,20 @@ public class Main {
             System.out.println(product);
         }
 
-        Collections.sort(products); // sort using Product's implementation of Comparable
+        // Even though Product still implements Comparable, passing a Comparator to sort makes it use that.
+        Collections.sort(products, new ProdNameComparator());
 
         System.out.println();
-        System.out.println("====== AFTER DESC. PRICE SORT ======");
+        System.out.println("====== AFTER NAME SORT ======");
+        for (Product product : products) {
+            System.out.println(product);
+        }
+
+        // Now, instead of using the Collections' version of sort, the List's one is being used.
+        products.sort(new ProdPriceComparator());
+
+        System.out.println();
+        System.out.println("====== AFTER ASC. PRICE SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,20 +18,32 @@ public class Main {
             System.out.println(product);
         }
 
-        // Even though Product still implements Comparable, passing a Comparator to sort makes it use that.
-        Collections.sort(products, new ProdNameComparator());
+        // Creates a Comparator in the form of an anonymous class
+        Comparator<Product> descNameComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return - o1.getName().compareToIgnoreCase(o2.getName());
+            }
+        };
+        products.sort(descNameComparator);
 
         System.out.println();
-        System.out.println("====== AFTER NAME SORT ======");
+        System.out.println("====== AFTER DESC. NAME SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }
 
-        // Now, instead of using the Collections' version of sort, the List's one is being used.
-        products.sort(new ProdPriceComparator());
+        Comparator<Product> descPriceComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return - o1.getPrice().compareTo(o2.getPrice());
+            }
+        };
+
+        products.sort(descPriceComparator);
 
         System.out.println();
-        System.out.println("====== AFTER ASC. PRICE SORT ======");
+        System.out.println("====== AFTER DESC. PRICE SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }

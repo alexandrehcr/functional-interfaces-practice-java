@@ -18,13 +18,9 @@ public class Main {
             System.out.println(product);
         }
 
-        // Creates a Comparator in the form of an anonymous class
-        Comparator<Product> descNameComparator = new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return - o1.getName().compareToIgnoreCase(o2.getName());
-            }
-        };
+        // Creates a Comparator in the form of lambda expression, which is an anonymous or arrow function.
+        Comparator<Product> descNameComparator = (p1, p2) -> - p1.getName().compareToIgnoreCase(p2.getName());
+
         products.sort(descNameComparator);
 
         System.out.println();
@@ -33,17 +29,12 @@ public class Main {
             System.out.println(product);
         }
 
-        Comparator<Product> descPriceComparator = new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return - o1.getPrice().compareTo(o2.getPrice());
-            }
-        };
+        Comparator<Product> ascPriceComparator = (p1, p2) -> p1.getPrice().compareTo(p2.getPrice());
 
-        products.sort(descPriceComparator);
+        products.sort(ascPriceComparator);
 
         System.out.println();
-        System.out.println("====== AFTER DESC. PRICE SORT ======");
+        System.out.println("====== AFTER ASC. PRICE SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }

@@ -28,7 +28,7 @@ public class Product implements Comparable<Product> {
 
     @Override
     public int compareTo(Product p) {
-        return name.compareToIgnoreCase(p.getName());
+        return -price.compareTo(p.getPrice()); // the `-` signal inverts the order (asc -> desc)
     }
 
     @Override

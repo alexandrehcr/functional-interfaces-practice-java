@@ -24,7 +24,7 @@ public class Main {
         Collections.sort(products); // sort using Product's implementation of Comparable
 
         System.out.println();
-        System.out.println("====== AFTER NAME SORT ======");
+        System.out.println("====== AFTER DESC. PRICE SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }

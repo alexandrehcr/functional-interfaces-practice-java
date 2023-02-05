@@ -18,23 +18,19 @@ public class Main {
             System.out.println(product);
         }
 
-        // Creates a Comparator in the form of lambda expression, which is an anonymous or arrow function.
-        Comparator<Product> descNameComparator = (p1, p2) -> - p1.getName().compareToIgnoreCase(p2.getName());
-
-        products.sort(descNameComparator);
+        // Lambda is implicitly passed to the compare() method of the Comparator, since it's a functional interface.
+        products.sort((p1, p2) -> p1.getName().compareToIgnoreCase(p2.getName()));
 
         System.out.println();
-        System.out.println("====== AFTER DESC. NAME SORT ======");
+        System.out.println("====== AFTER NAME SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }
 
-        Comparator<Product> ascPriceComparator = (p1, p2) -> p1.getPrice().compareTo(p2.getPrice());
-
-        products.sort(ascPriceComparator);
+        products.sort((p1, p2) -> - p1.getPrice().compareTo(p2.getPrice()));
 
         System.out.println();
-        System.out.println("====== AFTER ASC. PRICE SORT ======");
+        System.out.println("====== AFTER DESC. PRICE SORT ======");
         for (Product product : products) {
             System.out.println(product);
         }

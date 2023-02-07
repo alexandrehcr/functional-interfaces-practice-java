@@ -21,9 +21,7 @@ public class FunctionProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        Function<Product, String> function = product -> product.getName().toUpperCase();
-
-        List<String> upperCaseProductNames = products.stream().map(function).collect(Collectors.toList());
+        List<String> upperCaseProductNames = products.stream().map(product -> product.getName().toUpperCase()).collect(Collectors.toList());
 
         upperCaseProductNames.forEach(System.out::println);
     }

@@ -20,7 +20,7 @@ public class FunctionProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        List<String> upperCaseProductNames = products.stream().map(new toUpperCaseFunction()).collect(Collectors.toList());
+        List<String> upperCaseProductNames = products.stream().map(Product::staticToUpperCaseName).collect(Collectors.toList());
 
         upperCaseProductNames.forEach(System.out::println);
     }

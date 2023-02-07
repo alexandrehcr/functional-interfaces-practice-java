@@ -37,6 +37,11 @@ public class Product {
         return price >= 600.0;
     }
 
+    // As static method, it doesn't know the states of any instances. Hence, the product argument.
+    public static void staticPriceUpdateConsumer(Product product) {
+        product.setPrice(product.getPrice() * 1.1);
+    }
+
     @Override
     public String toString() {
         return String.format("%s, %.2f", name, price);

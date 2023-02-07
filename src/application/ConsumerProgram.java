@@ -22,12 +22,7 @@ public class ConsumerProgram {
 
         double priceAdjustPercentage = 10.0;
 
-        // Since the anonymous function has a single line, the curly brackets are optional.
-        Consumer<Product> consumer = p -> {
-            p.setPrice(p.getPrice() * (1 + priceAdjustPercentage / 100));
-        };
-
-        products.forEach(consumer);
+        products.forEach(p -> p.setPrice(p.getPrice() * (1 + priceAdjustPercentage / 100)));
 
         // Print the list with forEach() instead of enhanced for.
         products.forEach(System.out::println);

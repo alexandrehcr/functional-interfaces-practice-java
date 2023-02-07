@@ -19,8 +19,8 @@ public class PredicateProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        // the ProdPredicate test() method returns true if the prod. price is >= 600.00;
-        products.removeIf(new ProdPredicate());
+        // Using a static method reference instead of a class that implements Predicate;
+        products.removeIf(Product::staticPredicate);
 
         for (Product product : products) {
             System.out.println(product);

@@ -19,8 +19,8 @@ public class PredicateProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        // Using a static method reference instead of a class that implements Predicate;
-        products.removeIf(Product::staticPredicate);
+        // Using a non-static method reference instead of a class that implements Predicate;
+        products.removeIf(Product::nonStaticPredicate);
 
         for (Product product : products) {
             System.out.println(product);

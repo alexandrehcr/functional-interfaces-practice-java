@@ -32,6 +32,11 @@ public class Product {
         return product.getPrice() >= 600.0;
     }
 
+    // Since it is a non-static method, it works with the instance itself.
+    public boolean nonStaticPredicate() {
+        return price >= 600.0;
+    }
+
     @Override
     public String toString() {
         return String.format("%s, %.2f", name, price);

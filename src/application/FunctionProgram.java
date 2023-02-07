@@ -6,6 +6,7 @@ import util.toUpperCaseFunction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FunctionProgram {
@@ -20,7 +21,9 @@ public class FunctionProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        List<String> upperCaseProductNames = products.stream().map(Product::nonStaticToUpperCaseName).collect(Collectors.toList());
+        Function<Product, String> function = product -> product.getName().toUpperCase();
+
+        List<String> upperCaseProductNames = products.stream().map(function).collect(Collectors.toList());
 
         upperCaseProductNames.forEach(System.out::println);
     }

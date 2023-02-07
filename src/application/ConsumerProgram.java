@@ -1,12 +1,13 @@
 package Application;
 
 import entities.Product;
+import util.ProdPriceUpdateConsumer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class PredicateProgram {
+public class ConsumerProgram {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 
@@ -18,13 +19,10 @@ public class PredicateProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        double valueThreshold = 600.0;
+        // Updates each Product price to 1.1x
+        products.forEach(new ProdPriceUpdateConsumer());
 
-        // Predicate as lambda expression
-        products.removeIf(p -> p.getPrice() <= valueThreshold);
-
-        for (Product product : products) {
-            System.out.println(product);
-        }
+        // Print the list with forEach() instead of enhanced for.
+        products.forEach(System.out::println);
     }
 }

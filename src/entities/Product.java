@@ -41,6 +41,9 @@ public class Product {
     public static void staticPriceUpdateConsumer(Product product) {
         product.setPrice(product.getPrice() * 1.1);
     }
+    public void nonStaticPriceUpdateConsumer() {
+        price *= 1.1;
+    }
 
     @Override
     public String toString() {

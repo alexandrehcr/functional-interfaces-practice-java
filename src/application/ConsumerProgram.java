@@ -19,8 +19,8 @@ public class ConsumerProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        // Updates each Product price to 1.1x using a static method reference
-        products.forEach(Product::staticPriceUpdateConsumer);
+        // Updates each Product price to 1.1x using a non-static method reference
+        products.forEach(Product::nonStaticPriceUpdateConsumer);
 
         // Print the list with forEach() instead of enhanced for.
         products.forEach(System.out::println);

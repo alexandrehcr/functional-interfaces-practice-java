@@ -1,6 +1,10 @@
+package application;
+
+import entities.Product;
+
 import java.util.*;
 
-public class Main {
+public class SortProgram {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 

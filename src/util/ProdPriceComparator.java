@@ -1,3 +1,7 @@
+package util;
+
+import entities.Product;
+
 import java.util.Comparator;
 
 public class ProdPriceComparator implements Comparator<Product> {

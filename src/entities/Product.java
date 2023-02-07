@@ -1,3 +1,5 @@
+package entities;
+
 public class Product implements Comparable<Product> {
     private String name;
     private Double price;

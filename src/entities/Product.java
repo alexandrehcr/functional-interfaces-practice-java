@@ -1,6 +1,6 @@
 package entities;
 
-public class Product implements Comparable<Product> {
+public class Product {
     private String name;
     private Double price;
 
@@ -28,9 +28,8 @@ public class Product implements Comparable<Product> {
         this.price = price;
     }
 
-    @Override
-    public int compareTo(Product p) {
-        return -price.compareTo(p.getPrice()); // the `-` signal inverts the order (asc -> desc)
+    public static boolean staticPredicate(Product product) {
+        return product.getPrice() >= 600.0;
     }
 
     @Override

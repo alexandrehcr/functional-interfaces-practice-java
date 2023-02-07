@@ -6,6 +6,7 @@ import util.ProdPriceUpdateConsumer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
 
 public class ConsumerProgram {
     public static void main(String[] args) {
@@ -19,8 +20,14 @@ public class ConsumerProgram {
         products.add(new Product("Air Conditioning", 770.00));
         products.add(new Product("Electric Guitar", 650.00));
 
-        // Updates each Product price to 1.1x using a non-static method reference
-        products.forEach(Product::nonStaticPriceUpdateConsumer);
+        double priceAdjustPercentage = 10.0;
+
+        // Since the anonymous function has a single line, the curly brackets are optional.
+        Consumer<Product> consumer = p -> {
+            p.setPrice(p.getPrice() * (1 + priceAdjustPercentage / 100));
+        };
+
+        products.forEach(consumer);
 
         // Print the list with forEach() instead of enhanced for.
         products.forEach(System.out::println);
